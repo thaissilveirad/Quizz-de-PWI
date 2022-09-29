@@ -37,138 +37,69 @@ const arr = [
 ];
 
 arr.forEach((e, i) => {
-  const pg = arr[0];
-  const quest = pg.pergunta;
-  h2.innerHTML = quest;
-  const resp = pg.respostas[i];
-  op[i].innerHTML = `<div id="resp"> ${resp} </div>`;
-
-  op.forEach((op, i) => op.addEventListener('click', () => {
-     if(i==pg.correta) {
-        op.classList.add('clickedgreen');
-            acerto = 1;
-            acertos.innerHTML = `${acerto} acertos.`;
-     }else{
-        op.classList.add('clickedred');
-        acerto = 0;
-     }
-  }));
-});
-
-button.addEventListener('click', () => {
-nquestao++;
-result.innerHTML = `Questão ${nquestao} de 4`;
-if(nquestao==2) {
-    arr.forEach((e, i) => {
-        const pg = arr[1];
-        const quest = pg.pergunta;
-        h2.innerHTML = quest;
-        const resp = pg.respostas[i];
-        op[i].innerHTML = `<div id="resp"> ${resp} </div>`;
-
-        op.forEach((op, i) => {
-        op.classList.remove('clickedgreen');
-        op.classList.remove('clickedred');
-        
-        op.addEventListener('click', () => {
-            if(i===pg.correta) {
-                op.classList.remove('clickedred');
-                op.classList.add("clickedgreen");
-                if(acerto===0) {
-                    acerto = 1;
-                    acertos.innerHTML = `${acerto} acertos.`;
-                 }else if(acerto===1) {
-                    acerto = 2;
-                    acertos.innerHTML = `${acerto} acertos.`;
-                 }
-            }else{
-            op.classList.add('clickedred');
-            }
+    acertos.innerHTML = `${acerto} acertos.`
+    result.innerHTML = `Questão ${nquestao} de 4`;
+    const pg = arr[nquestao-1];
+    const quest = pg.pergunta;
+    h2.innerHTML = quest;
+    const resp = pg.respostas[i];
+    op[i].innerHTML = `<div id="resp"> ${resp} </div>`;
+  
+    op.forEach((o, i) => o.addEventListener('click', () => {
+    op.forEach((op, i) => op.classList.remove('clickedred', 'clickedgreen'));
+       if(i==pg.correta) {
+          o.classList.add('clickedgreen');
+          acerto=1;
+          acertos.innerHTML = `${acerto} acertos.`;
+       }else{
+          o.classList.add('clickedred');
+       }
+    }));
+  });
+  
+  button.addEventListener('click', () => {
+  nquestao++;
+  
+  if(nquestao==4) {
+      button.innerHTML = 'Terminar';
+  }
+  if(nquestao==5) {
+      result.remove();
+      quiz.classList.add('hidden');
+      end.style = `display: flex;`
+      document.querySelector('h3').innerHTML = `VOCÊ ACERTOU ${acerto}/4 PERGUNTAS.`;
+      document.querySelector('h4').innerHTML = 'Obrigado pela participação :)';
+  }
+  
+          result.innerHTML = `Questão ${nquestao} de 4`;
+          const pg = arr[nquestao-1];
+          const quest = pg.pergunta;
+          h2.innerHTML = quest;
+          pg.respostas.forEach((e, i) => {
+              const resp = pg.respostas[i];
+              op[i].innerHTML = `<div id="resp"> ${resp} </div>`;
+          })
+  
+          op.forEach((op, i) => {
+          op.classList.remove('clickedgreen', 'clickedred');
+          
+          op.addEventListener('click', () => {
+              if(i===pg.correta) {
+                  op.classList.remove('clickedred');
+                  op.classList.add("clickedgreen");
+                  acerto++;
+                  acertos.innerHTML = `${acerto} acertos.`;
+              }else{
+              op.classList.add('clickedred');
+              }
+          });
+          });
+  
+  
         });
+  
+  
         
-        });
-      });
-}else if(nquestao==3) {
-    arr.forEach((e, i) => {
-        const pg = arr[2];
-        const quest = pg.pergunta;
-        h2.innerHTML = quest;
-        const resp = pg.respostas[i];
-        op[i].innerHTML = `<div id="resp"> ${resp} </div>`;
-      
-        op.forEach((op, i) => {
-            op.classList.remove('clickedgreen');
-            op.classList.remove('clickedred');
-            
-            op.addEventListener('click', () => {
-                if(i==pg.correta) {
-                    op.classList.remove('clickedred');
-                    op.classList.add('clickedgreen');
-                    if(acerto===0) {
-                        acerto = 1;
-                        acertos.innerHTML = `${acerto} acertos.`;
-                     }else if(acerto===1) {
-                        acerto = 2;
-                        acertos.innerHTML = `${acerto} acertos.`;
-                     }else if(acerto===2) {
-                        acerto = 3;
-                        acertos.innerHTML = `${acerto} acertos.`;
-                     }
-                }else{
-                op.classList.add('clickedred');
-                }
-            });
-            });
-      });
-}else if(nquestao==4) {
-    arr.forEach((e, i) => {
-        button.innerHTML = 'Terminar';
-        const pg = arr[3];
-        const quest = pg.pergunta;
-        h2.innerHTML = quest;
-        const resp = pg.respostas[i];
-        op[i].innerHTML = `<div id="resp"> ${resp} </div>`;
-      
-        op.forEach((op, i) => {
-            op.classList.remove('clickedgreen');
-            op.classList.remove('clickedred');
-    
-            op.addEventListener('click', () => {
-                if(i==pg.correta) {
-                    op.classList.remove('clickedred');
-                    op.classList.add('clickedgreen');
-                    if(acerto===0) {
-                        acerto = 1;
-                        acertos.innerHTML = `${acerto} acertos.`;
-                     }else if(acerto===1) {
-                        acerto = 2;
-                        acertos.innerHTML = `${acerto} acertos.`;
-                     }else if(acerto===2) {
-                        acerto = 3;
-                        acertos.innerHTML = `${acerto} acertos.`;
-                     }else if(acerto===3) {
-                        acerto = 4;
-                        acertos.innerHTML = `${acerto} acertos.`;
-                     }
-                }else{
-                op.classList.add('clickedred');
-                }
-            });
-            });
-      });
-}
-if(nquestao==5) {
-    quiz.classList.add('hidden');
-    end.style = `display: flex;`
-    document.querySelector('h3').innerHTML = `VOCÊ ACERTOU ${acerto}/4 PERGUNTAS.`;
-    document.querySelector('h4').innerHTML = 'Obrigado pela participação :)';
-}
-});
-
-
-acertos.innerHTML = `${acerto} acertos.`
-result.innerHTML = `Questão ${nquestao} de 4`;
-
-voltaInicio.addEventListener('click', () => {
-    window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/inicial.html";
-});
+  voltaInicio.addEventListener('click', () => {
+      window.location.href = "inicial.html";
+  });
