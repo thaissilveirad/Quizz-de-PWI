@@ -5,11 +5,11 @@ const contato = document.querySelector("#contato");
 const mostrar = document.querySelector("#mostrar");
 
 entrar.addEventListener('click', () => {
-  window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/login.html";
+  window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/login.html";
 })
 
 criaConta.addEventListener('click', () => {
-  window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/cadastro.html";
+  window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/cadastro.html";
 });
 
 sobre.addEventListener('click', () => {
@@ -63,17 +63,17 @@ const item = document.querySelectorAll('#item');
 
 item.forEach((item, i) => item.addEventListener('click', () => {
     if(i===0) {
-      window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/entretenimento.html";
+      window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/entretenimento.html";
      }else if (i===1) {
-      window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/geografia.html";
+      window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/geografia.html";
      }else if(i===2) {
-      window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/historia.html";
+      window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/historia.html";
      }else if(i===3) {
-      window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/ciencias.html";
+      window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/ciencias.html";
      }else if(i===4) {
-      window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/esportes.html";
+      window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/esportes.html";
      }else if(i===5) {
-      window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/artes.html";
+      window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/artes.html";
      }
 }));
 

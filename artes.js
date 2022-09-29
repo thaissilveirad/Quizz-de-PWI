@@ -170,5 +170,5 @@ acertos.innerHTML = `${acerto} acertos.`
 result.innerHTML = `Questão ${nquestao} de 4`;
 
 voltaInicio.addEventListener('click', () => {
-    window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/inicial.html";
+    window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/inicial.html";
 });

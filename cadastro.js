@@ -91,7 +91,7 @@ else {
 
 botao.addEventListener('click', () => {
     if(nome.value != '' || email.value != '' || user.value != '' || senha.value != '' || confirma.value != '') {
-    window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/inicial.html";
+    window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/inicial.html";
     alert(`${user.value}, você foi cadastrado(a) com sucesso!`);
     users.push({
         name: nome.value,

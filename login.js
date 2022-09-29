@@ -22,7 +22,7 @@ botao.addEventListener('click', () => {
     }
     if (logged != false) {
         localStorage.setItem('logged', JSON.stringify(logged));
-        window.location.href = "file:///C:/Users/User/Documents/aqui/site-pw/inicial.html";
+        window.location.href = "file:///C:/Users/User/Documents/pwquiz/pwquiz-1/inicial.html";
         alert(`${user.value}, seu login foi efetuado com sucesso!`);
 }
     else {
